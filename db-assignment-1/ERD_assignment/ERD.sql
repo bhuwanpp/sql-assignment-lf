@@ -62,7 +62,7 @@ CREATE TABLE IF NOT EXISTS BookStore.Order_Items (
     quantity INT,
     PRIMARY KEY(order_id,book_id),
     FOREIGN KEY (order_id) REFERENCES BookStore.Orders(order_id),
-    FOREIGN KEY (order_id) REFERENCES BookStore.Orders(order_id)
+    FOREIGN KEY (book_id) REFERENCES BookStore.Books(book_id)
 );
 
 
