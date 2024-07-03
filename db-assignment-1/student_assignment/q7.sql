@@ -7,3 +7,13 @@ WHERE student_id IN (
     GROUP BY student_id
     HAVING COUNT(DISTINCT course_id) = 3 
 );
+
+-- for all 
+SELECT student_name FROM Students WHERE student_id IN (
+        SELECT
+            student_id FROM Enrollments GROUP BY student_id HAVING
+            COUNT(course_id) = (
+                SELECT COUNT(course_id)
+                FROM Courses
+            )
+    );
