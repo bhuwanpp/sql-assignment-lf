@@ -1,8 +1,22 @@
 -- List students who are enrolled in all available courses.
-SELECT student_name FROM Students WHERE student_id IN (
-        SELECT
-            student_id FROM Enrollments GROUP BY student_id HAVING
-            COUNT(course_id) = (
-                SELECT COUNT(course_id) FROM Courses
+select
+	student_name
+from
+	Students
+where
+	student_id in (
+	select
+		student_id
+	from
+		Enrollments
+	group by
+		student_id
+	having
+		COUNT(course_id) = (
+		select
+			COUNT(course_id)
+		from
+			Courses
                 )
     );
+   

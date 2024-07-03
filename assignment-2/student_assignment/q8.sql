@@ -1,6 +1,14 @@
 -- Find students who are not enrolled in any courses.
-SELECT * FROM Students
-WHERE student_id NOT IN (
-    SELECT student_id
-    FROM Enrollments
+select
+	*
+from
+	Students
+where
+	student_id not in (
+	select
+		student_id
+	from
+		Enrollments
 );
+
+   

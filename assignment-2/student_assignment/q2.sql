@@ -1,8 +1,17 @@
 -- q2 List all courses taken by students named Bob.
-SELECT * FROM Courses
-WHERE course_id IN (
-    SELECT Enrollments.course_id
-    FROM Enrollments, Students
-    WHERE Enrollments.student_id = Students.student_id
-    AND student_name = 'Bob'
+select
+	*
+from
+	Courses
+where
+	course_id in (
+	select
+		Enrollments.course_id
+	from
+		Enrollments,
+		Students
+	where
+		Enrollments.student_id = Students.student_id
+		and student_name = 'Bob'
 );
+
