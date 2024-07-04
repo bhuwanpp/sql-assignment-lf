@@ -35,11 +35,11 @@ select
 	s.student_id,
 	s.student_name
 from
-	Courses c
+	students s
 right join Enrollments e on
-	c.course_id = e.course_id
-right join Students s on
-	e.student_id = s.student_id;
+	s.student_id = e.student_id
+right join  courses c on
+	e.course_id = c.course_id ;
 --4. Self Join:
 --Question: Find pairs of students who are enrolled in at least one common course.
 
